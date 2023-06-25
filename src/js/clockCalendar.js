@@ -1,8 +1,9 @@
 const updateElement = (el, format) => {
   const date = new Date();
+  const millisecondsUntilNextSecond = 1000 - date.getMilliseconds();
   const value = date.toLocaleString('en-US', format);
   el.textContent = value;
-  setTimeout(() => updateElement(el, format), 1000);
+  setTimeout(() => updateElement(el, format), millisecondsUntilNextSecond);
 };
 
 const showTime = (el) => {
