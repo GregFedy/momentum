@@ -1,4 +1,4 @@
-const getTimeOfDay = () => {
+export const getTimeOfDay = () => {
   const hour = new Date().getHours();
 
   if (hour >= 0 && hour < 6) {
@@ -21,14 +21,24 @@ export const showGreeting = (element) => {
   setTimeout(() => showGreeting(element), millisecondsUntilNextSecond);
 };
 
-export const setLocalStorage = (name) => {
+const setLocalStorage = (name) => {
   localStorage.setItem('name', name.value);
 };
 
-export const getLocalStorage = (name) => {
+const getLocalStorage = (name) => {
   const nameFromLS = localStorage.getItem('name');
 
   if (nameFromLS !== null) {
     name.value = nameFromLS;
   }
 };
+
+const name = document.querySelector('.name');
+
+window.addEventListener('beforeunload', () => {
+  setLocalStorage(name);
+});
+
+window.addEventListener('load', () => {
+  getLocalStorage(name);
+});
