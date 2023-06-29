@@ -16,7 +16,6 @@ export const setBg = () => {
   const bgNum = String(randomNum).padStart(2, 0);
   const img = new Image();
   img.src = `https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/assets/images/${timeOfDay}/${bgNum}.jpg`;
-  console.log(img.src);
   img.addEventListener('load', () => {
     document.body.style.backgroundImage = 'url(' + img.src + ')';
   });
