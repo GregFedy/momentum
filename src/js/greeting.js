@@ -39,6 +39,14 @@ window.addEventListener('beforeunload', () => {
   setLocalStorage(name);
 });
 
-window.addEventListener('load', () => {
+window.addEventListener('DOMContentLoaded', () => {
   getLocalStorage(name);
 });
+
+function setName(event) {
+  if (event.code === 'Enter') {
+    name.blur();
+  }
+}
+
+name.addEventListener('keypress', setName);
