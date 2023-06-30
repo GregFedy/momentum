@@ -9,10 +9,10 @@ const getRandomIntInclusive = (min, max) => {
   max = Math.floor(max);
   randomNum = Math.floor(Math.random() * (max - min + 1)) + min; //Максимум и минимум включаются
 };
+getRandomIntInclusive(1, 20);
 
 export const setBg = () => {
   const timeOfDay = getTimeOfDay();
-  getRandomIntInclusive(1, 20);
   const bgNum = String(randomNum).padStart(2, 0);
   const img = new Image();
   img.src = `https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/assets/images/${timeOfDay}/${bgNum}.jpg`;
@@ -26,7 +26,7 @@ window.addEventListener('DOMContentLoaded', function () {
 });
 
 const getSlideNext = () => {
-  if (randomNum <= 20) {
+  if (randomNum < 20) {
     randomNum += 1;
   } else {
     randomNum = 1;
@@ -35,7 +35,7 @@ const getSlideNext = () => {
 };
 
 const getSlidePrev = () => {
-  if (randomNum >= 1) {
+  if (randomNum > 1) {
     randomNum -= 1;
   } else {
     randomNum = 20;
