@@ -1,3 +1,4 @@
+// Constants
 const weatherIcon = document.querySelector('.weather-icon');
 const temperature = document.querySelector('.temperature');
 const weatherDescription = document.querySelector('.weather-description');
@@ -5,6 +6,7 @@ const wind = document.querySelector('.wind');
 const humidity = document.querySelector('.humidity');
 const city = document.querySelector('.city');
 
+// Functions
 const getLocalStorage = (city) => {
   const cityFromLS = localStorage.getItem('city');
   if (cityFromLS) {
@@ -19,7 +21,7 @@ const setLocalStorage = (city) => {
   localStorage.setItem('city', city.value);
 };
 
-export async function getWeather() {
+export const getWeather = async () => {
   let url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&lang=en&APPID=d191e6c3f127212f0c950537a4382b4d&units=metric`;
   const res = await fetch(url);
   const data = await res.json();
@@ -30,7 +32,7 @@ export async function getWeather() {
   weatherDescription.textContent = data.weather[0].description;
   wind.textContent = `Wind speed: ${Math.round(data.wind.speed)} m/s`;
   humidity.textContent = `Humidity: ${data.main.humidity}%`;
-}
+};
 
 const setCity = (event) => {
   if (event.code === 'Enter') {
@@ -39,6 +41,7 @@ const setCity = (event) => {
   }
 };
 
+// Event listeners
 window.addEventListener('DOMContentLoaded', () => {
   getLocalStorage(city);
 });

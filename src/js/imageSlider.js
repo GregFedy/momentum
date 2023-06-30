@@ -1,15 +1,18 @@
 import { getTimeOfDay } from './greeting.js';
 
-let randomNum;
+// Constants
 const slideNext = document.querySelector('.slide-next');
 const slidePrev = document.querySelector('.slide-prev');
 
+// Variables
+let randomNum;
+
+// Functions
 const getRandomIntInclusive = (min, max) => {
   min = Math.ceil(min);
   max = Math.floor(max);
-  randomNum = Math.floor(Math.random() * (max - min + 1)) + min; //Максимум и минимум включаются
+  randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
 };
-getRandomIntInclusive(1, 20);
 
 export const setBg = () => {
   const timeOfDay = getTimeOfDay();
@@ -20,10 +23,6 @@ export const setBg = () => {
     document.body.style.backgroundImage = 'url(' + img.src + ')';
   });
 };
-
-window.addEventListener('DOMContentLoaded', function () {
-  document.body.style.backgroundImage = 'none';
-});
 
 const getSlideNext = () => {
   if (randomNum < 20) {
@@ -42,6 +41,14 @@ const getSlidePrev = () => {
   }
   setBg();
 };
+
+// Initialize
+getRandomIntInclusive(1, 20);
+
+// Event listeners
+window.addEventListener('DOMContentLoaded', () => {
+  document.body.style.backgroundImage = 'none';
+});
 
 slideNext.addEventListener('click', getSlideNext);
 slidePrev.addEventListener('click', getSlidePrev);

@@ -1,3 +1,7 @@
+// Constants
+const name = document.querySelector('.name');
+
+// Functions
 export const getTimeOfDay = () => {
   const hour = new Date().getHours();
 
@@ -33,20 +37,19 @@ const getLocalStorage = (name) => {
   }
 };
 
-const name = document.querySelector('.name');
+const setName = (event) => {
+  if (event.code === 'Enter') {
+    name.blur();
+  }
+};
 
-window.addEventListener('beforeunload', () => {
-  setLocalStorage(name);
-});
-
+// Event listeners
 window.addEventListener('DOMContentLoaded', () => {
   getLocalStorage(name);
 });
 
-function setName(event) {
-  if (event.code === 'Enter') {
-    name.blur();
-  }
-}
+window.addEventListener('beforeunload', () => {
+  setLocalStorage(name);
+});
 
 name.addEventListener('keypress', setName);
