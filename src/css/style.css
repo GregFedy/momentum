@@ -129,6 +129,7 @@ body {
   width: 180px;
   min-height: 180px;
   text-align: left;
+  user-select: none;
 }
 
 .weather-error {
@@ -201,12 +202,14 @@ body {
   font-family: 'Arial-MT';
   font-size: 100px;
   letter-spacing: -4px;
+  user-select: none;
 }
 
 .date {
   min-height: 28px;
   font-size: 24px;
   margin-bottom: 20px;
+  user-select: none;
 }
 
 .greeting-container {
