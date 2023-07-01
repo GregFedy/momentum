@@ -4,6 +4,7 @@ import { showTime, showDate } from './clockCalendar.js';
 import { showGreeting } from './greeting.js';
 import { setBg } from './imageSlider.js';
 import './weatherWidget.js';
+import './quoteOfTheDayWidget.js';
 
 const time = document.querySelector('.time');
 const date = document.querySelector('.date');
