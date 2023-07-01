@@ -22,7 +22,8 @@ const setLocalStorage = (city) => {
 };
 
 export const getWeather = async () => {
-  let url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&lang=en&APPID=d191e6c3f127212f0c950537a4382b4d&units=metric`;
+  const apiKey = import.meta.env.VITE_API_KEY_WEATHER
+  let url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&lang=en&APPID=${apiKey}&units=metric`;
   const res = await fetch(url);
   const data = await res.json();
 
